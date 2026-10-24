@@ -1,0 +1,119 @@
+/* Barra-pulsante sotto il combattente. Foundry restyla ogni button: si azzera tutto. */
+.cdmg-bar {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  width: 100%;
+  margin-top: 2px;
+  padding: 2px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+  position: relative;
+  line-height: 1;
+}
+.cdmg-bar:hover { outline: 1px solid #f5b041; }
+
+.cdmg-meter {
+  display: block;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+.cdmg-meter > i { display: block; height: 100%; transition: width .3s ease-out; }
+.cdmg-hp { height: 7px; }
+.cdmg-hp > i { background: #c0392b; }
+.cdmg-stress > i { background: #8e44ad; }
+.cdmg-armor > i { background: #95a5a6; }
+
+.cdmg-num {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 9px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 2px #000, 0 0 2px #000;
+  pointer-events: none;
+}
+
+/* Carosello di Carolingian UI: la barra sta sul fondo del ritratto al posto della loro. */
+body.crlngn-combat-tracker #combat-popout li.combatant > .cdmg-bar {
+  position: absolute;
+  left: 3px;
+  bottom: 3px;
+  width: calc(100% - 6px);
+  margin: 0;
+  z-index: 4;
+}
+body.cdmg-gm.crlngn-combat-tracker #combat-popout li.combatant:has(> .cdmg-bar) > .token-resource { display: none; }
+
+/* Riquadro danni */
+#cdmg-panel {
+  position: fixed;
+  z-index: 10000;
+  width: 250px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background: #1e1e24;
+  color: #ddd;
+  font-family: var(--font-body, system-ui);
+  font-size: 13px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+#cdmg-panel .cdmg-head { display: flex; flex-direction: column; gap: 2px; margin-bottom: 6px; }
+#cdmg-panel .cdmg-head b { color: #fff; font-size: 14px; }
+#cdmg-panel .cdmg-head span { color: #aaa; font-size: 11px; }
+#cdmg-panel .cdmg-row { display: flex; align-items: center; gap: 4px; margin-top: 4px; }
+#cdmg-panel .cdmg-lab { flex: 1; font-size: 12px; }
+
+#cdmg-panel input.cdmg-amount {
+  width: 64px;
+  height: 32px;
+  flex: none;
+  font-size: 18px;
+  text-align: center;
+  background: #111;
+  color: #fff;
+  border: 1px solid #666;
+  border-radius: 4px;
+}
+#cdmg-panel button {
+  all: unset;
+  box-sizing: border-box;
+  padding: 0 10px;
+  height: 32px;
+  min-width: 32px;
+  text-align: center;
+  line-height: 32px;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background: #333;
+  color: #eee;
+  cursor: pointer;
+}
+#cdmg-panel .cdmg-row:not(:first-of-type) button { height: 26px; line-height: 26px; }
+#cdmg-panel button:hover { filter: brightness(1.2); }
+#cdmg-panel button.cdmg-damage { flex: 1; background: #7b241c; border-color: #a93226; color: #fff; }
+#cdmg-panel button.cdmg-heal { flex: 1; background: #1e5631; border-color: #27ae60; color: #fff; }
+
+#cdmg-panel .cdmg-preview { min-height: 16px; margin-top: 4px; color: #f5b041; font-size: 12px; }
+#cdmg-panel .cdmg-check { display: flex; align-items: center; gap: 6px; margin-top: 6px; font-size: 12px; }
+#cdmg-panel .cdmg-last {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid #333;
+  font-size: 11px;
+  color: #aaa;
+}
+#cdmg-panel .cdmg-last span { flex: 1; }
+#cdmg-panel .cdmg-last button { height: 22px; line-height: 22px; font-size: 11px; }

@@ -1,0 +1,33 @@
+{
+  "id": "combat-damage",
+  "title": "Combat Damage",
+  "description": "Danni e cure dal Combat Tracker, per chi tira i dadi veri al tavolo. Barra sotto ogni combattente (anche nel carosello di Carolingian UI), riquadro con il numero e conto automatico delle soglie in Daggerheart. Solo per il GM.",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Francesco Nguyen"
+    }
+  ],
+  "url": "https://github.com/vietts/foundry-combat-damage",
+  "manifest": "https://github.com/vietts/foundry-combat-damage/releases/latest/download/module.json",
+  "download": "https://github.com/vietts/foundry-combat-damage/releases/latest/download/module.zip",
+  "bugs": "https://github.com/vietts/foundry-combat-damage/issues",
+  "readme": "https://github.com/vietts/foundry-combat-damage#readme",
+  "license": "MIT",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "relationships": {
+    "systems": [
+      { "id": "daggerheart", "type": "system" },
+      { "id": "dnd5e", "type": "system" }
+    ]
+  },
+  "esmodules": [
+    "scripts/combat-damage.mjs"
+  ],
+  "styles": [
+    "styles/combat-damage.css"
+  ]
+}
