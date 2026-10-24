@@ -154,8 +154,9 @@ function barContent(actor) {
   const s = readStats(actor);
   if ( !s.hp ) return "";
   const temp = s.temp ? ` +${s.temp}` : "";
-  return `${meter("cdmg-hp", s.hp)}<span class="cdmg-num">${s.hp.left}/${s.hp.max}${temp}</span>`
+  const meters = `${meter("cdmg-hp", s.hp)}<span class="cdmg-num">${s.hp.left}/${s.hp.max}${temp}</span>`
     + meter("cdmg-stress", s.stress) + meter("cdmg-armor", s.armor);
+  return `<span class="cdmg-meters">${meters}</span><span class="cdmg-badge"><i class="fa-solid fa-plus-minus"></i></span>`;
 }
 
 function stop(event) {
